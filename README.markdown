@@ -19,7 +19,7 @@ Please visit the following pages for more information
 
 ### Planned Features
 
-See [lighthouse] and [uservoice]
+See [Lighthouse][lighthouse] and [UserVoice][uservoice]
 
 
 

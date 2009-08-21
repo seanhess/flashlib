@@ -1,0 +1,26 @@
+set :host, "linode"
+set :path, "/var/www/flashlib.org"
+role :live, "linode"
+
+desc "Sync"
+namespace :deploy do
+
+  desc "Sync remote by default"
+  task :default do
+    remote.default
+  end
+  
+  desc "Update the server's code"
+  task :update do
+    `git push origin master`
+    run 'cd #{path}; git pull origin master'
+  end
+
+  namespace :remote do
+      desc "Sync the code to the server"
+      task :default do
+        `rsync -avz --delete --exclude-from=.rsyncignore "./" "#{host}:#{path}"`
+        run 'cd #{path}; touch tmp/restart.txt'
+      end
+  end
+end

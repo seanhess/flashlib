@@ -9,6 +9,7 @@ class Project < CouchRest::ExtendedDocument
   
   view_by :name
   
+  ## I can create them on the database this way 
   def self.test
     view :test
   end

@@ -1,0 +1,2 @@
+require 'flashlib'
+run FlashLib
